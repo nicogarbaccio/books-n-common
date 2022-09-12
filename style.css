@@ -1,3 +1,5 @@
-body {
-    font-family: ;
+#header {
+    display: flex;
+    justify-content: space-around;
+    background-color: darkolivegreen;
 }
