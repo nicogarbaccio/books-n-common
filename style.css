@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     background-color: darkolivegreen;
-    width: 100%;
+    padding: 20px;
 }
 
 /* Dropdown Button */
@@ -53,9 +53,10 @@
   background-color: gray;
   color: #fff;
   display: flex;
+  justify-content: space-between;
 }
     
-.footer div{
+.footer div {
   text-align: center;
 }
     
