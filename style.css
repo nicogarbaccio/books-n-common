@@ -397,15 +397,24 @@ li {
 img {
   width:190px;
 }
-.favorites-list button{
+.fave-button,
+.queue-button { 
   width:190px;
   margin: 15px 5px 15px 5px;
   border: none;
-  background-color: #fce043;
+  background-color: #fc4943;
   color: rgb(255, 255, 255);
   padding:3px;
   font-size: large;
   font-weight: bold;
+}
+
+.fave-button {
+  background-color: #fc4943;
+}
+
+.queue-button {
+  background-color: #4362fc;
 }
 
 /* element.style{
