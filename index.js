@@ -1,4 +1,4 @@
-const searchForm = document.querySelector('#search-form')
+const searchForm = document.querySelector('.search-form')
 
 //Delete book cards from favorites
 function deleteFavorite(id) {
