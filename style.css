@@ -5,6 +5,17 @@
     padding: 20px;
 }
 
+#search-results,
+#featured-books,
+#reading-queue,
+#favorites {
+  padding: 10px;
+}
+
+#search-results {
+  display: none;
+}
+
 /* Dropdown Button */
 .dropbtn {
     background-color: #04AA6D;
@@ -39,7 +50,7 @@
 }
   
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #ddd;}
   
   /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
@@ -95,7 +106,7 @@
   border-width:thin medium thick 10px; */
 }
 
-.favorites-list li{
+li {
   list-style: none;
   width:200px;
   box-shadow: 8px 10px #c9c8c8;
@@ -103,7 +114,7 @@
   margin:10px;
 
 }
-.favorites-list img{
+img {
   width:190px;
 }
 .favorites-list button{
