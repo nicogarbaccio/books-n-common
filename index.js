@@ -1,14 +1,10 @@
 const searchForm = document.querySelector('#search-form')
 
-function fetchFavorites(){
-    fetch("")
-    .then(data => data.json())
-    .then(books => {
-         books.map((books) => { 
-            createFavCards(books);
-        })
-    }) 
-}
+function fetchFeatured(){
+    fetch("https://gutendex.com/books/")
+        .then(data => data.json())
+        .then(data => console.log(data));
+    } 
 
 //deletes book cards from favorites
 function deleteFavorite(id) {
@@ -49,3 +45,4 @@ function renderBook() {
     li.append(h3)
     resultsContainer.append(li)
 }
+fetchFeatured()
