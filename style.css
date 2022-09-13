@@ -117,9 +117,9 @@
   font-weight: bold;
 }
 
-element.style{
+/* element.style{
   scroll-snap=type: x mandatory;
-}
+} */
   
 .overflow-scroll-x{
   overflow-x: scroll;

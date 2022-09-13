@@ -7,3 +7,12 @@ function fetchFavorites(){
         })
     }) 
 }
+
+//deletes book cards from favorites
+function deleteFavorite(id) {
+    fetch(`http:///${id}`, {
+        method: "DELETE",
+        header: { "Content-Type": "application/json" },
+    })
+        .then(res => res.json())
+}
