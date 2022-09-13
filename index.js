@@ -16,24 +16,17 @@ function deleteFavorite(id) {
 }
 
 // Search by author
-function authorSearch(first, last) {
+function authorSearch() {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        fetch(`https://openlibrary.org/search/authors.json?q=${first}%20${last}`)
-        .then(res => res.json())
-        .then(renderBook())
+        renderSearch()
     })
 }
 
 // Render search results
-function renderSearch() {
-    console.log("hey")
-}
-
-authorSearch()
-
-// Render book cards 
-function renderBook() {
+function renderSearch(first, last) {
+    fetch(`https://openlibrary.org/search/authors.json?q=${first}%20${last}`)
+    .then(res => res.json())
     const searchResults = document.querySelector('#search-results')
     const resultsContainer = document.querySelector('.results-container')
     const li = document.createElement('li')
@@ -45,4 +38,13 @@ function renderBook() {
     li.append(h3)
     resultsContainer.append(li)
 }
+
+// Render book cards 
+function renderBook() {
+
+}
+
+// Invoking functions 
 fetchFeatured()
+
+authorSearch()
