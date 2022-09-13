@@ -14,6 +14,7 @@ fetch(`https://gutendex.com/books/`)
         .then(res => res.json())
         .then(data => {
             authorSearch(data)
+            renderFeatured(data)
         })
 
 // Search by author
@@ -34,7 +35,7 @@ function authorSearch(data) {
 // Add items to search results 
 // name param will be used when filter works 
 function addSearch(data, name) {
-    const spliceBooks = data?.results.splice(0, 5)
+    const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
         const searchResults = document.querySelector('#search-results')
         const resultsContainer = document.querySelector('.results-container')
@@ -50,6 +51,21 @@ function addSearch(data, name) {
     })
 }
 
-// Invoking functions 
+// Render favorites on load
+function renderFeatured(data) {
+    const spliceBooks = data?.results.splice(0, 6)
+    spliceBooks?.forEach(book => {
+        const featuredBooks = document.querySelector('#books-container')
+        const li = document.createElement('li')
+        const h3 = document.createElement('h3')
+        const img = document.createElement('img')
+        img.src = book.formats['image/jpeg']
+        featuredBooks.style.display = "flex"
+        h3.textContent = book.title
+        li.append(h3, img)
+        featuredBooks.append(li)
+    })
+}
 
+// Invoking functions 
 authorSearch()
