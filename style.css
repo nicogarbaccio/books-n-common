@@ -355,7 +355,8 @@ section{
   display: none;
 }
 
-#queue-container {
+#queue-container,
+.favorites-list {
   display: flex;
 }
 
@@ -514,18 +515,6 @@ section{
   text-decoration: none;
   color: #fff;
   margin-bottom: 10px;
-}
-
-.favorites-list{
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  /* border-top: solid;
-  border-width:thin medium thick 10px; */
 }
 
 li {

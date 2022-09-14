@@ -6,7 +6,7 @@ switchElement.addEventListener('click', () => {
 
 const searchForm = document.querySelector('.search-form')
 const readingQueue = document.querySelector('#queue-container')
-const favesList = document.querySelector('#favorites')
+const favesList = document.querySelector('.favorites-list')
 const resultsContainer = document.querySelector('.results-container')
 
 let loginForm = document.querySelector('.login-form-container');
@@ -53,6 +53,15 @@ function renderFeatured(data) {
             queueImg.src = book.formats['image/jpeg']
             queueBook.append(queueh3, queueImg)
             readingQueue.append(queueBook)
+        })
+        faveBtn.addEventListener('click', function() {
+            const favBook = document.createElement('li')
+            const favh3 = document.createElement('h3')
+            favh3.textContent = book.title
+            const favImg = document.createElement('img')
+            favImg.src = book.formats['image/jpeg']
+            favBook.append(favh3, favImg)
+            favesList.append(favBook)
         })
     })
 }
