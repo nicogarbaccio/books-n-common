@@ -306,6 +306,10 @@ section{
   display: none;
 }
 
+#queue-container {
+  display: flex;
+}
+
 .reading-queue .reading-queue-slider .box:hover{
   border:var(--border-hover);
 }

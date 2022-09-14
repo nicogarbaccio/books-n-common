@@ -1,4 +1,6 @@
 const searchForm = document.querySelector('.search-form')
+const readingQueue = document.querySelector('#queue-container')
+const favesList = document.querySelector('#favorites')
 
 let loginForm = document.querySelector('.login-form-container');
 
@@ -23,7 +25,7 @@ function renderFeatured(data) {
     const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
         const featuredBooks = document.querySelector('#books-container')
-        const li = document.createElement('li')
+        const newBook = document.createElement('li')
         const h3 = document.createElement('h3')
         const img = document.createElement('img')
         const faveBtn = document.createElement('button')
@@ -35,8 +37,11 @@ function renderFeatured(data) {
         img.src = book.formats['image/jpeg']
         featuredBooks.style.display = "flex"
         h3.textContent = book.title
-        li.append(h3, img, faveBtn, queueBtn)
-        featuredBooks.append(li)
+        newBook.append(h3, img, faveBtn, queueBtn)
+        featuredBooks.append(newBook)
+        queueBtn.addEventListener('click', function () {
+            readingQueue.append(newBook)
+        })
     })
 }
 
@@ -113,7 +118,7 @@ function addFavorite(favBooks, event){
   
 }
 
-var swiper = new Swiper(".reading-queue-slider", {
+var swiper = new Swiper(".readong-queue-slider", {
     spaceBetween: 10,
     loop:true,
     centeredSlides: true,
