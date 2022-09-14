@@ -422,6 +422,7 @@ section{
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   justify-content: space-between;
   /* border-top: solid;
@@ -434,10 +435,11 @@ li {
   box-shadow: 8px 10px #c9c8c8;
   padding: 5px;
   margin:10px;
+  text-align: center;
 
 }
 img {
-  width:190px;
+  width:200px;
 }
 .fave-button,
 .queue-button { 
