@@ -35,12 +35,17 @@ function renderFeatured(data) {
         queueBtn.className = 'queue-button'
         queueBtn.textContent = "Add to queue"
         img.src = book.formats['image/jpeg']
-        featuredBooks.style.display = "flex"
         h3.textContent = book.title
         newBook.append(h3, img, faveBtn, queueBtn)
         featuredBooks.append(newBook)
         queueBtn.addEventListener('click', function () {
-            readingQueue.append(newBook)
+            const queueBook = document.createElement('li')
+            const queueh3 = document.createElement('h3')
+            queueh3.textContent = book.title
+            const queueImg = document.createElement('img')
+            queueImg.src = book.formats['image/jpeg']
+            queueBook.append(queueh3, queueImg)
+            readingQueue.append(queueBook)
         })
     })
 }
