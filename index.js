@@ -99,6 +99,41 @@ function addSearch(data) {
 //     })
 // }
 
+
+//post method on a favorited books
+function addFavorite(favBooks, event){
+    event.preventDefault();
+    fetch(`https://gutendex.com/books/${id}`,{
+            method: "POST",
+            headers:{
+            "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(favBooks)
+        })
+  
+}
+
+var swiper = new Swiper(".readong-queue-slider", {
+    spaceBetween: 10,
+    loop:true,
+    centeredSlides: true,
+    autoplay: {
+      delay: 9500,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+});
+
 //Delete book cards from favorites
 function deleteFavorite(id) {
     fetch(`https://gutendex.com/books/${id}`, {

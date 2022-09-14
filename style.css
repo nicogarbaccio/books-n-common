@@ -306,6 +306,45 @@ section{
   display: none;
 }
 
+.reading-queue .reading-queue-slider .box:hover{
+  border:var(--border-hover);
+}
+
+.reading-queue .reading-queue-slider .box .image img{
+  height:15rem;
+}
+
+.reading-queue .reading-queue-slider .box .content h3{
+  font-size: 2rem;
+  color:var(--black);
+}
+
+.reading-queue .reading-queue-slider .box .content .price{
+  font-size: 2.2rem;
+  color:var(--black);
+  padding-bottom: .5rem;
+}
+
+.reading-queue .reading-queue .box{
+  display: flex;
+  align-items:center;
+  gap:1.5rem;
+  padding:2rem 1rem;
+  border:var(--border);
+  margin:1rem 0;
+}
+
+.reading-queue .reading-queue-slider .box .content .price span{
+  font-size: 1.5rem;
+  color:var(--light-color);
+  text-decoration: line-through #6B9D4A;
+}
+
+.reading-queue .reading-queue-slider .box .content .hearts i{
+  font-size: 1.5rem;
+  color:var(--green);
+}
+
 /* Dropdown Button */
 .dropbtn {
     background-color: #6B9D4A;
