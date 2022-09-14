@@ -540,10 +540,15 @@ li {
 img {
   width:120px;
 }
+
+button {
+  border-radius: 12px;
+}
+
 .fave-button,
 .queue-button { 
-  width:190px;
-  margin: 15px 5px 15px 5px;
+  width: 160px;
+  margin-top: 15px;
   border: none;
   background-color: #fc4943;
   color: rgb(255, 255, 255);
@@ -553,11 +558,11 @@ img {
 }
 
 .fave-button {
-  background-color: #fc4943;
+  background-color: #4C2E05;
 }
 
 .queue-button {
-  background-color: #4362fc;
+  background-color: #AEBD93;
 }
 
 #books-container {
