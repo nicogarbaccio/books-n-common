@@ -7,6 +7,7 @@ switchElement.addEventListener('click', () => {
 const searchForm = document.querySelector('.search-form')
 const readingQueue = document.querySelector('#queue-container')
 const favesList = document.querySelector('#favorites')
+const resultsContainer = document.querySelector('.results-container')
 
 let loginForm = document.querySelector('.login-form-container');
 
@@ -57,22 +58,24 @@ function renderFeatured(data) {
 }
 
 // Search for books
-function bookSearch(data) {
+function bookSearch() {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = e.target.submit.value
-        fetch(`https://gutendex.com/books?search=${name}`)
+        const name = e.target['search-box'].value
+        fetch(`https://gutendex.com/books?search=${name}%20`)
         .then(res => res.json())
-        addSearch(data)
+        .then(data => addSearch(data))
     })
 }
 
 // Add items to search results 
 function addSearch(data) {
+    [...resultsContainer.children].forEach(element => {
+        element.remove()
+    })
     const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
         const searchResults = document.querySelector('#search-results')
-        const resultsContainer = document.querySelector('.results-container')
         const li = document.createElement('li')
         const h3 = document.createElement('h3')
         const img = document.createElement('img')
