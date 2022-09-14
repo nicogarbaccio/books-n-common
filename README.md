@@ -1,5 +1,4 @@
 Team Members: Kaeli Gilmore & Nico Garbaccio
-TEST NICO
 Books ‘N Common is a single page app that allow users to rate, reviews books, and keep track of books they want to read and books they have read. The app is built with Open Library API, HTML, CSS, and Javascript.
 
 Features:
