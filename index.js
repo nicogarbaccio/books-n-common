@@ -113,7 +113,7 @@ function addFavorite(favBooks, event){
   
 }
 
-var swiper = new Swiper(".readong-queue-slider", {
+var swiper = new Swiper(".reading-queue-slider", {
     spaceBetween: 10,
     loop:true,
     centeredSlides: true,
