@@ -1,5 +1,5 @@
 :root{
-  --green:#6B9D4A;
+  --green:#33473c;
   --dark-color:#4C6A4B;
   --black:#444;
   --light-color:#666;
@@ -48,16 +48,6 @@
 .dark {
   background-color: rgb(57, 57, 57);
   transition: 0.3s;
-}
-
-.moon {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 0 0 rgb(255, 255, 255);
-  position: absolute;
-  top: 5px;
-  left: 45px;
 }
 
 .dark .flicker {
@@ -341,7 +331,7 @@ section{
   height: 40px;
   width: 40px;
   background: transparent;
-  color: #6B9D4A;
+  color: #9c6b36;
 }
 
 #search-results,
@@ -391,7 +381,7 @@ section{
 .reading-queue .reading-queue-slider .box .content .price span{
   font-size: 1.5rem;
   color:var(--light-color);
-  text-decoration: line-through #6B9D4A;
+  text-decoration: line-through #33473c;
 }
 
 .reading-queue .reading-queue-slider .box .content .hearts i{
@@ -470,9 +460,7 @@ section{
   padding-right: 2rem;
 }
 
-.footer .box-container .box .map{
-  width:100%;
-}
+
 
 .footer .share{
   padding:1rem 0;
@@ -491,7 +479,7 @@ section{
 }
 
 .footer .share a:hover{
-  background:var(--black);
+  background:#9c6b36;
 }
 
 .footer .credit{
@@ -539,7 +527,7 @@ button {
   width: 160px;
   margin-top: 15px;
   border: none;
-  background-color: #fc4943;
+  background-color: #33473c;
   color: rgb(255, 255, 255);
   padding:3px;
   font-size: large;
@@ -547,27 +535,15 @@ button {
 }
 
 .fave-button {
-  background-color: #4C2E05;
+  background-color: #33473c;
 }
 
 .queue-button {
-  background-color: #AEBD93;
+  background-color: #9c6b36;
 }
 
 #books-container {
   display: flex;
-}
-
-/* element.style{
-  scroll-snap=type: x mandatory;
-} */
-  
-.overflow-scroll-x{
-  overflow-x: scroll;
-}
-  
-.flex{
-  display:flex
 }
 
 /* media queries  */
