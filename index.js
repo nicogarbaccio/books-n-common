@@ -27,7 +27,7 @@ fetch(`https://gutendex.com/books`)
         renderFeatured(data)
 })
 
-// Render featured books on load
+// Render featured books on load & add to faves & queue
 function renderFeatured(data) {
     const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
@@ -100,33 +100,26 @@ function addSearch(data) {
         h3.textContent = book.title
         li.append(h3, img, faveBtn, queueBtn)
         resultsContainer.append(li)
+        queueBtn.addEventListener('click', function () {
+            const queueBook = document.createElement('li')
+            const queueh3 = document.createElement('h3')
+            queueh3.textContent = book.title
+            const queueImg = document.createElement('img')
+            queueImg.src = book.formats['image/jpeg']
+            queueBook.append(queueh3, queueImg)
+            readingQueue.append(queueBook)
+        })
+        faveBtn.addEventListener('click', function() {
+            const favBook = document.createElement('li')
+            const favh3 = document.createElement('h3')
+            favh3.textContent = book.title
+            const favImg = document.createElement('img')
+            favImg.src = book.formats['image/jpeg']
+            favBook.append(favh3, favImg)
+            favesList.append(favBook)
+        })
     })
 }
-
-// Condense functions? 
-// function renderBooks() {
-//     const spliceBooks = data?.results.splice(0, 6)
-//     spliceBooks?.forEach(book => {
-//         const searchResults = document.querySelector('#search-results')
-//         const resultsContainer = document.querySelector('.results-container')
-//         const li = document.createElement('li')
-//         const h3 = document.createElement('h3')
-//         const img = document.createElement('img')
-//         const faveBtn = document.createElement('button')
-//         faveBtn.className = "fave-button"
-//         faveBtn.textContent = "Add to favorites"
-//         const queueBtn = document.createElement('button')
-//         queueBtn.className = 'queue-button'
-//         queueBtn.textContent = "Add to queue"
-//         img.src = book.formats['image/jpeg']
-//         searchResults.style.display = "block"
-//         resultsContainer.style.display = "flex"
-//         h3.textContent = book.title
-//         li.append(h3, img, faveBtn)
-//         featuredBooks.append(li)
-//     })
-// }
-
 
 //post method on a favorited books
 function addFavorite(favBooks, event){
@@ -141,6 +134,7 @@ function addFavorite(favBooks, event){
   
 }
 
+// Swipe thru containers
 var swiper = new Swiper(".readong-queue-slider", {
     spaceBetween: 10,
     loop:true,
