@@ -10,41 +10,49 @@ document.querySelector('#close-login-btn').onclick = () =>{
   loginForm.classList.remove('active');
 }
 
-//Delete book cards from favorites
-function deleteFavorite(id) {
-    fetch(`https://gutendex.com/books/${id}`, {
-        method: "DELETE",
-        header: { "Content-Type": "application/json" },
+// Get books, invoke author search, render featured books
+fetch(`https://gutendex.com/books`)
+    .then(res => res.json())
+    .then(data => {
+        bookSearch(data)
+        renderFeatured(data)
+})
+
+// Render featured books on load
+function renderFeatured(data) {
+    const spliceBooks = data?.results.splice(0, 6)
+    spliceBooks?.forEach(book => {
+        const featuredBooks = document.querySelector('#books-container')
+        const li = document.createElement('li')
+        const h3 = document.createElement('h3')
+        const img = document.createElement('img')
+        const faveBtn = document.createElement('button')
+        faveBtn.className = "fave-button"
+        faveBtn.textContent = "Add to favorites"
+        const queueBtn = document.createElement('button')
+        queueBtn.className = 'queue-button'
+        queueBtn.textContent = "Add to queue"
+        img.src = book.formats['image/jpeg']
+        featuredBooks.style.display = "flex"
+        h3.textContent = book.title
+        li.append(h3, img, faveBtn, queueBtn)
+        featuredBooks.append(li)
     })
-        .then(res => res.json())
 }
 
-// Get books, invoke author search
-fetch(`https://gutendex.com/books/`)
-        .then(res => res.json())
-        .then(data => {
-            authorSearch(data)
-            renderFeatured(data)
-        })
-
-// Search by author
-function authorSearch(data) {
+// Search for books
+function bookSearch(data) {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        const name = e.target.submit.value
+        fetch(`https://gutendex.com/books?search=${name}`)
+        .then(res => res.json())
         addSearch(data)
-        // const name = e.target.search.value
-        // function handleFilter() {
-        //     data.results.filter(book => {
-        //         console.log(book.authors['name'] = "Austen, Jane")
-        //     })
-        // } 
-        // handleFilter()
     })
 }
 
 // Add items to search results 
-// name param will be used when filter works 
-function addSearch(data, name) {
+function addSearch(data) {
     const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
         const searchResults = document.querySelector('#search-results')
@@ -67,28 +75,7 @@ function addSearch(data, name) {
     })
 }
 
-// Render favorites on load
-function renderFeatured(data) {
-    const spliceBooks = data?.results.splice(0, 6)
-    spliceBooks?.forEach(book => {
-        const featuredBooks = document.querySelector('#books-container')
-        const li = document.createElement('li')
-        const h3 = document.createElement('h3')
-        const img = document.createElement('img')
-        const faveBtn = document.createElement('button')
-        faveBtn.className = "fave-button"
-        faveBtn.textContent = "Add to favorites"
-        const queueBtn = document.createElement('button')
-        queueBtn.className = 'queue-button'
-        queueBtn.textContent = "Add to queue"
-        img.src = book.formats['image/jpeg']
-        featuredBooks.style.display = "flex"
-        h3.textContent = book.title
-        li.append(h3, img, faveBtn, queueBtn)
-        featuredBooks.append(li)
-    })
-}
-
+// Condense functions? 
 // function renderBooks() {
 //     const spliceBooks = data?.results.splice(0, 6)
 //     spliceBooks?.forEach(book => {
@@ -112,5 +99,14 @@ function renderFeatured(data) {
 //     })
 // }
 
+//Delete book cards from favorites
+function deleteFavorite(id) {
+    fetch(`https://gutendex.com/books/${id}`, {
+        method: "DELETE",
+        header: { "Content-Type": "application/json" },
+    })
+        .then(res => res.json())
+}
+
 // Invoking functions 
-authorSearch()
+bookSearch()
