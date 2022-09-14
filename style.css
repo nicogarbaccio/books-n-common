@@ -71,7 +71,7 @@ section{
   margin-top: 1rem;
   display:inline-block;
   padding:.9rem 3rem;
-  border-radius: .5rem;
+  border-radius: 1.55rem;
   color:#fff;
   background:var(--green);
   font-size: 1.7rem;
@@ -188,6 +188,7 @@ section{
   background:var(--dark-color);
 }
 
+/* Login Form */
 .login-form-container{
   display: flex;
   align-items: center;
@@ -223,8 +224,9 @@ section{
 
 .login-form-container form span{
   display: block;
-  font-size: 1.5rem;
+  font-size: 0.97rem;
   padding-top: 1rem;
+  text-align: center;
 }
 
 .login-form-container form .box{
@@ -282,14 +284,15 @@ section{
 
 .social-container a {
   border: 1px;
-  border-radius: 50%;
+  border-radius: 100%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   margin: 0 5px;
   height: 40px;
   width: 40px;
-  background: #6B9D4A;
+  background: transparent;
+  color: #6B9D4A;
 }
 
 #search-results,
@@ -348,7 +351,7 @@ section{
 .footer{
   margin-top: 150px;
   padding: 20px;
-  background-color: gray;
+  background-color: #4C6A4B;
   color: #fff;
   display: flex;
   justify-content: space-between;
