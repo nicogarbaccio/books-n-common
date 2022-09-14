@@ -1,3 +1,9 @@
+const switchElement = document.querySelector('.switch')
+
+switchElement.addEventListener('click', () => {
+  document.body.classList.toggle('dark')
+})
+
 const searchForm = document.querySelector('.search-form')
 const readingQueue = document.querySelector('#queue-container')
 const favesList = document.querySelector('#favorites')
