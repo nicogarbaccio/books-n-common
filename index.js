@@ -27,28 +27,6 @@ fetch(`https://gutendex.com/books`)
         renderFeatured(data)
 })
 
-// Add queue and favorite buttons
-function queueAndFave() {
-    queueBtn.addEventListener('click', function () {
-        const queueBook = document.createElement('li')
-        const queueh3 = document.createElement('h3')
-        queueh3.textContent = book.title
-        const queueImg = document.createElement('img')
-        queueImg.src = book.formats['image/jpeg']
-        queueBook.append(queueh3, queueImg)
-        readingQueue.append(queueBook)
-    })
-    faveBtn.addEventListener('click', function() {
-        const favBook = document.createElement('li')
-        const favh3 = document.createElement('h3')
-        favh3.textContent = book.title
-        const favImg = document.createElement('img')
-        favImg.src = book.formats['image/jpeg']
-        favBook.append(favh3, favImg)
-        favesList.append(favBook)
-    })
-}
-
 // Render featured books on load & add to faves & queue
 function renderFeatured(data) {
     const spliceBooks = data?.results.splice(0, 6)
@@ -67,8 +45,26 @@ function renderFeatured(data) {
         h3.textContent = book.title
         newBook.append(h3, img, faveBtn, queueBtn)
         featuredBooks.append(newBook)
+        queueBtn.addEventListener('click', function () {
+            const queueBook = document.createElement('li')
+            const queueh3 = document.createElement('h3')
+            queueh3.textContent = book.title
+            const queueImg = document.createElement('img')
+            queueImg.src = book.formats['image/jpeg']
+            queueBook.append(queueh3, queueImg)
+            readingQueue.append(queueBook)
+        })
+        faveBtn.addEventListener('click', function() {
+            const favBook = document.createElement('li')
+            const favh3 = document.createElement('h3')
+            favh3.textContent = book.title
+            const favImg = document.createElement('img')
+            favImg.src = book.formats['image/jpeg']
+            favBook.append(favh3, favImg)
+            favesList.append(favBook)
+        })
     })
-    queueAndFave()
+    
 }
 
 // Search for books
@@ -105,8 +101,25 @@ function addSearch(data) {
         h3.textContent = book.title
         li.append(h3, img, faveBtn, queueBtn)
         resultsContainer.append(li)
+        queueBtn.addEventListener('click', function () {
+            const queueBook = document.createElement('li')
+            const queueh3 = document.createElement('h3')
+            queueh3.textContent = book.title
+            const queueImg = document.createElement('img')
+            queueImg.src = book.formats['image/jpeg']
+            queueBook.append(queueh3, queueImg)
+            readingQueue.append(queueBook)
+        })
+        faveBtn.addEventListener('click', function() {
+            const favBook = document.createElement('li')
+            const favh3 = document.createElement('h3')
+            favh3.textContent = book.title
+            const favImg = document.createElement('img')
+            favImg.src = book.formats['image/jpeg']
+            favBook.append(favh3, favImg)
+            favesList.append(favBook)
+        })
     })
-    queueAndFave()
 }
 
 //post method on a favorited books
