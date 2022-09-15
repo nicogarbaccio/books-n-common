@@ -79,53 +79,65 @@ function bookSearch() {
     })
 }
 
-// Add items to search results 
+// Render results and buttons
+function getResults (book) {
+    const searchResults = document.querySelector('#search-results')
+    const li = document.createElement('li')
+    const h3 = document.createElement('h3')
+    const img = document.createElement('img')
+    const faveBtn = document.createElement('button')
+    faveBtn.className = "fave-button"
+    faveBtn.textContent = "Add to favorites"
+    const queueBtn = document.createElement('button')
+    queueBtn.className = 'queue-button'
+    queueBtn.textContent = "Add to queue"
+    img.src = book.formats['image/jpeg']
+    searchResults.style.display = "block"
+    resultsContainer.style.display = "flex"
+    h3.textContent = book.title
+    li.append(h3, img, faveBtn, queueBtn)
+    resultsContainer.append(li)
+    queueBtn.addEventListener('click', function () {
+        const queueBook = document.createElement('li')
+        const queueh3 = document.createElement('h3')
+        queueh3.textContent = book.title
+        const queueImg = document.createElement('img')
+        queueImg.src = book.formats['image/jpeg']
+        queueBook.append(queueh3, queueImg)
+        readingQueue.append(queueBook)
+    })
+    faveBtn.addEventListener('click', function() {
+        const favBook = document.createElement('li')
+        const favh3 = document.createElement('h3')
+        favh3.textContent = book.title
+        const favImg = document.createElement('img')
+        favImg.src = book.formats['image/jpeg']
+        favBook.append(favh3, favImg)
+        favesList.append(favBook)
+    })
+}
+
+// Add multiple books to search results 
 function addSearch(data) {
     [...resultsContainer.children].forEach(element => {
         element.remove()
     })
     const spliceBooks = data?.results.splice(0, 6)
     spliceBooks?.forEach(book => {
-        const searchResults = document.querySelector('#search-results')
-        const li = document.createElement('li')
-        const h3 = document.createElement('h3')
-        const img = document.createElement('img')
-        const faveBtn = document.createElement('button')
-        faveBtn.className = "fave-button"
-        faveBtn.textContent = "Add to favorites"
-        const queueBtn = document.createElement('button')
-        queueBtn.className = 'queue-button'
-        queueBtn.textContent = "Add to queue"
-        img.src = book.formats['image/jpeg']
-        searchResults.style.display = "block"
-        resultsContainer.style.display = "flex"
-        h3.textContent = book.title
-        li.append(h3, img, faveBtn, queueBtn)
-        resultsContainer.append(li)
-        queueBtn.addEventListener('click', function () {
-            const queueBook = document.createElement('li')
-            const queueh3 = document.createElement('h3')
-            queueh3.textContent = book.title
-            const queueImg = document.createElement('img')
-            queueImg.src = book.formats['image/jpeg']
-            queueBook.append(queueh3, queueImg)
-            readingQueue.append(queueBook)
-        })
-        faveBtn.addEventListener('click', function() {
-            const favBook = document.createElement('li')
-            const favh3 = document.createElement('h3')
-            favh3.textContent = book.title
-            const favImg = document.createElement('img')
-            favImg.src = book.formats['image/jpeg']
-            favBook.append(favh3, favImg)
-            favesList.append(favBook)
-        })
+        getResults(book)
     })
     moreResults.style.display = "block"
     const moreResultsButton = document.createElement('button')
     moreResultsButton.className = "more-results-button"
     moreResultsButton.textContent = "Get more results"
     moreResults.append(moreResultsButton)
+        moreResultsButton.addEventListener('click', function() {
+            console.log('hey!')
+            const spliceResults = data?.results.splice(7, 13)
+            spliceResults.forEach(book => {
+                console.log(book)
+            })
+        })
 }
 
 //post method on a favorited books
