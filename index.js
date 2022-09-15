@@ -146,6 +146,11 @@ function addSearch(data) {
     searchBox.addEventListener('change', () => {
         moreResultsButton.remove()
     })
+    searchForm.addEventListener('submit', () => {
+        if (searchBox.value === searchBox.value) {
+            moreResultsButton.remove()
+        }
+    })
 }
 
 //post method on a favorited books
