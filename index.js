@@ -8,6 +8,7 @@ const searchForm = document.querySelector('.search-form')
 const readingQueue = document.querySelector('#queue-container')
 const favesList = document.querySelector('.favorites-list')
 const resultsContainer = document.querySelector('.results-container')
+const moreResults = document.querySelector('.more-results')
 
 let loginForm = document.querySelector('.login-form-container');
 
@@ -120,6 +121,11 @@ function addSearch(data) {
             favesList.append(favBook)
         })
     })
+    moreResults.style.display = "block"
+    const moreResultsButton = document.createElement('button')
+    moreResultsButton.className = "more-results-button"
+    moreResultsButton.textContent = "Get more results"
+    moreResults.append(moreResultsButton)
 }
 
 //post method on a favorited books

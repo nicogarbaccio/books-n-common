@@ -522,8 +522,16 @@ button {
   border-radius: 12px;
 }
 
+.more-results {
+  display: none; 
+  font-size: 1.5rem;
+  padding: 5px;
+  margin-top: 20px;
+}
+
 .fave-button,
-.queue-button { 
+.queue-button,
+.more-results-button { 
   width: 160px;
   margin-top: 15px;
   border: none;
