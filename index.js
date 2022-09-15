@@ -9,16 +9,18 @@ const readingQueue = document.querySelector('#queue-container')
 const favesList = document.querySelector('.favorites-list')
 const resultsContainer = document.querySelector('.results-container')
 const moreResults = document.querySelector('.more-results')
+const searchBox = document.querySelector('#search-box')
 
-let loginForm = document.querySelector('.login-form-container');
+// Log-in popup
+const loginForm = document.querySelector('.login-form-container');
 
-document.querySelector('#login-btn').onclick = () =>{
-  loginForm.classList.toggle('active');
-}
+document.querySelector('#login-btn').addEventListener('click', () => {
+    loginForm.classList.toggle('active');
+})
 
-document.querySelector('#close-login-btn').onclick = () =>{
-  loginForm.classList.remove('active');
-}
+document.querySelector('#close-login-btn').addEventListener('click', () => {
+    loginForm.classList.remove('active');
+})
 
 // Get books, invoke author search, render featured books
 fetch(`https://gutendex.com/books`)
@@ -73,6 +75,7 @@ function bookSearch() {
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const name = e.target['search-box'].value
+        e.target.reset()
         fetch(`https://gutendex.com/books?search=${name}%20`)
         .then(res => res.json())
         .then(data => addSearch(data))
@@ -131,13 +134,18 @@ function addSearch(data) {
     moreResultsButton.className = "more-results-button"
     moreResultsButton.textContent = "Get more results"
     moreResults.append(moreResultsButton)
-        moreResultsButton.addEventListener('click', function() {
-            console.log('hey!')
-            const spliceResults = data?.results.splice(7, 13)
-            spliceResults.forEach(book => {
-                console.log(book)
-            })
+    moreResultsButton.addEventListener('click', function() {
+        [...resultsContainer.children].forEach(element => {
+                element.remove()
         })
+        const spliceResults = data?.results.splice(7, 13)
+        spliceResults.forEach(book => {
+            getResults(book)
+        })
+    })
+    searchBox.addEventListener('change', () => {
+        moreResultsButton.remove()
+    })
 }
 
 //post method on a favorited books
