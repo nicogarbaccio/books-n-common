@@ -372,9 +372,9 @@ section{
 }
 
 .footer .share a{
-  height: 5rem;
-  width: 5rem;
-  line-height: 5rem;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
   font-size: 2rem;
   color:#fff;
   background:var(--green);
