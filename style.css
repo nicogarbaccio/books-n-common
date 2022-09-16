@@ -462,6 +462,25 @@ button {
   display: flex;
 }
 
+.newsletter {
+  width: 40px;
+  height: 45px;
+  border-radius: 4px;
+  text-align:justify;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  outline: 10px gray;
+}
+
+.newsletter button{
+  background-color: #9c6b36;
+  width: 130px;
+  margin-top: 10px;
+  border: none;
+  font-size: 12px;
+  color: #fff;
+}
+
 /* media queries  */
 
 @media (max-width:991px){
