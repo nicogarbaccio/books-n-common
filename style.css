@@ -160,7 +160,7 @@ section{
 
 .header .header-1 .icons div:hover,
 .header .header-1 .icons a:hover{
-  color:var(--green);
+  color: #9c6b36;
 }
 
 #search-btn{
