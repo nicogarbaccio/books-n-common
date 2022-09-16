@@ -460,6 +460,10 @@ button {
   font-weight: bold;
 }
 
+.more-results-button {
+  display: none;
+}
+
 .fave-button {
   background-color: #33473c;
 }

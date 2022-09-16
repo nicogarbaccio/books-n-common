@@ -10,6 +10,7 @@ const favesList = document.querySelector('.favorites-list')
 const resultsContainer = document.querySelector('.results-container')
 const moreResults = document.querySelector('.more-results')
 const searchBox = document.querySelector('#search-box')
+const moreResultsButton = document.querySelector('.more-results-button')
 
 // Log-in popup
 const loginForm = document.querySelector('.login-form-container');
@@ -130,10 +131,7 @@ function addSearch(data) {
         getResults(book)
     })
     moreResults.style.display = "block"
-    const moreResultsButton = document.createElement('button')
-    moreResultsButton.className = "more-results-button"
-    moreResultsButton.textContent = "Get more results"
-    moreResults.append(moreResultsButton)
+    moreResultsButton.style.display = "block"
     moreResultsButton.addEventListener('click', function() {
         [...resultsContainer.children].forEach(element => {
                 element.remove()
@@ -143,14 +141,14 @@ function addSearch(data) {
             getResults(book)
         })
     })
-    searchBox.addEventListener('change', () => {
-        moreResultsButton.remove()
-    })
-    searchForm.addEventListener('submit', () => {
-        if (searchBox.value === searchBox.value) {
-            moreResultsButton.remove()
-        }
-    })
+    // searchBox.addEventListener('change', () => {
+    //     moreResultsButton.remove()
+    // })
+    // searchForm.addEventListener('submit', () => {
+    //     if (searchBox.value === searchBox.value) {
+    //         moreResultsButton.remove()
+    //     }
+    // })
 }
 
 //post method on a favorited books
