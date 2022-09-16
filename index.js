@@ -12,6 +12,11 @@ const moreResults = document.querySelector('.more-results')
 const searchBox = document.querySelector('#search-box')
 const moreResultsButton = document.querySelector('.more-results-button')
 
+// Delete book function
+function deleteBook (e) {
+    e.target.parentNode.remove()
+}
+
 // Log-in popup
 const loginForm = document.querySelector('.login-form-container');
 
@@ -55,7 +60,11 @@ function renderFeatured(data) {
             queueh3.textContent = book.title
             const queueImg = document.createElement('img')
             queueImg.src = book.formats['image/jpeg']
-            queueBook.append(queueh3, queueImg)
+            const deleteButton = document.createElement('button')
+            deleteButton.className = "delete-button"
+            deleteButton.textContent = "Delete"
+            deleteButton.addEventListener('click', deleteBook)
+            queueBook.append(queueh3, queueImg, deleteButton)
             readingQueue.append(queueBook)
         })
         faveBtn.addEventListener('click', function() {
@@ -64,7 +73,10 @@ function renderFeatured(data) {
             favh3.textContent = book.title
             const favImg = document.createElement('img')
             favImg.src = book.formats['image/jpeg']
-            favBook.append(favh3, favImg)
+            const deleteButton = document.createElement('button')
+            deleteButton.className = "delete-button"
+            deleteButton.textContent = "Delete"
+            favBook.append(favh3, favImg, deleteButton)
             favesList.append(favBook)
         })
     })
@@ -107,7 +119,10 @@ function getResults (book) {
         queueh3.textContent = book.title
         const queueImg = document.createElement('img')
         queueImg.src = book.formats['image/jpeg']
-        queueBook.append(queueh3, queueImg)
+        const deleteButton = document.createElement('button')
+        deleteButton.className = "delete-button"
+        deleteButton.textContent = "Delete"
+        queueBook.append(queueh3, queueImg, deleteButton)
         readingQueue.append(queueBook)
     })
     faveBtn.addEventListener('click', function() {
@@ -116,7 +131,10 @@ function getResults (book) {
         favh3.textContent = book.title
         const favImg = document.createElement('img')
         favImg.src = book.formats['image/jpeg']
-        favBook.append(favh3, favImg)
+        const deleteButton = document.createElement('button')
+        deleteButton.className = "delete-button"
+        deleteButton.textContent = "Delete"
+        favBook.append(favh3, favImg, deleteButton)
         favesList.append(favBook)
     })
 }

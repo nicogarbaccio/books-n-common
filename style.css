@@ -449,7 +449,8 @@ button {
 
 .fave-button,
 .queue-button,
-.more-results-button { 
+.more-results-button,
+.delete-button { 
   width: 160px;
   margin-top: 15px;
   border: none;
