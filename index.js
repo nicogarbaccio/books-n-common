@@ -76,6 +76,7 @@ function renderFeatured(data) {
             const deleteButton = document.createElement('button')
             deleteButton.className = "delete-button"
             deleteButton.textContent = "Delete"
+            deleteButton.addEventListener('click', deleteBook)
             favBook.append(favh3, favImg, deleteButton)
             favesList.append(favBook)
         })
@@ -122,6 +123,7 @@ function getResults (book) {
         const deleteButton = document.createElement('button')
         deleteButton.className = "delete-button"
         deleteButton.textContent = "Delete"
+        deleteButton.addEventListener('click', deleteBook)
         queueBook.append(queueh3, queueImg, deleteButton)
         readingQueue.append(queueBook)
     })
@@ -134,6 +136,7 @@ function getResults (book) {
         const deleteButton = document.createElement('button')
         deleteButton.className = "delete-button"
         deleteButton.textContent = "Delete"
+        deleteButton.addEventListener('click', deleteBook)
         favBook.append(favh3, favImg, deleteButton)
         favesList.append(favBook)
     })
